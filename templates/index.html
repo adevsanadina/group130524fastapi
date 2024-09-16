@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block content %}
+<div class="row ms-3 mt-0 mt-1">
+    {% for tour in tours %}
+    <div class="card s-3 mt-0 mt-1 g-3" style="width: 18rem;">
+      <img src="{{ tour.cover }}" class="card-img-top" alt="Tour image">
+      <div class="card-body">
+        <h4 class="card-title">{{ tour.title }}</h4>
+        <h5 class="card-title">Price {{ tour.price }}$</h5>
+        <p class="card-text">{{ tour.description }}</p>
+        <a href="{{ url_for('tour_detail', tour_id=tour.id) }}" class="btn btn-primary">Details</a>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
